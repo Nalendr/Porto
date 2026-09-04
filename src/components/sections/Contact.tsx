@@ -85,7 +85,7 @@ export function Contact() {
             </div>
 
             <a
-              href="mailto:fauzyasn@gmail.com"
+              href="https://linkedin.com/in/nalendrs"
               className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors flex items-center justify-center gap-2"
             >
               Connect With Me <ArrowUpRight className="w-4 h-4" />

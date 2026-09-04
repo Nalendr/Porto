@@ -92,7 +92,7 @@ export function Hero() {
             transition={{ delay: 1, duration: 1 }}
             className="relative w-full max-w-200 mx-auto lg:mx-0"
           >
-            <GlitchMedia mediaSrc="/Porto/video/muri.mp4" mediaType="video" className="w-full aspect-[16/10] lg:aspect-[16/10]" />
+            <GlitchMedia mediaSrc="/Porto/video/muri.mp4" mediaType="video" className="w-full aspect-16/10 lg:aspect-16/10" />
           </motion.div>
         </div>
 
@@ -103,8 +103,6 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 0.8 }}
         >
-          <span className="font-mono uppercase tracking-widest">Scroll</span>
-          <ArrowDown className="h-6 w-6 animate-bounce" />
         </motion.div>
       </Container>
     </section>

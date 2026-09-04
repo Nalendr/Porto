@@ -26,7 +26,7 @@ const projects = [
   {
     title: 'Autonomous Gas Plume Tracking System',
     category: 'Lead Developer and Robotics Engineer',
-    year: '2024',
+    year: '2026',
     description: 'Developed and simulated an autonomous navigation system using Python and real-time sensor data. Built data-processing logic to analyze sensor inputs and support autonomous system decision-making.',
     tags: ['Python', 'Robotics', 'Sensor Data', 'Simulation'],
     link: '#',
