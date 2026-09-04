@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { BackgroundCanvas } from "@/components/background/BackgroundCanvas";
+import { CursorTrail } from "@/components/background/CursorTrail";
+import { DotMatrixShader } from "@/components/background/DotMatrixShader";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col relative">
         <BackgroundCanvas />
+        <CursorTrail />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
