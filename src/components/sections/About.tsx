@@ -77,10 +77,6 @@ export function About() {
                 <p className="text-4xl font-extrabold tracking-tighter">1+</p>
                 <p className="text-sm text-muted-foreground mt-1">Years of experience</p>
               </div>
-              <div>
-                <p className="text-4xl font-extrabold tracking-tighter">3.74</p>
-                <p className="text-sm text-muted-foreground mt-1">GPA (out of 4.00)</p>
-              </div>
             </motion.div>
           </motion.div>
         </motion.div>
