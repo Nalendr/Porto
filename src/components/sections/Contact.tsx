@@ -18,7 +18,7 @@ export function Contact() {
           {/* Header Banner - muri.mp4 */}
           <div className="h-32 relative overflow-hidden">
             <video
-              src="/muri.mp4"
+              src="/Porto/video/muri.mp4"
               autoPlay
               loop
               muted
@@ -32,7 +32,7 @@ export function Contact() {
             {/* Avatar Image */}
             <div className="w-20 h-20 bg-zinc-900 border-4 border-zinc-950 rounded-full -mt-10 overflow-hidden relative shadow-lg">
               <img
-                src="/uji.png"
+                src="/Porto/images/profile.png"
                 alt="Fauzya Shubhi Nalendrasidi"
                 className="w-full h-full object-cover"
                 onError={(e) => {

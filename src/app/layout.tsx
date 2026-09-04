@@ -4,8 +4,8 @@ import { BackgroundCanvas } from "@/components/background/BackgroundCanvas";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ALEX — Digital Designer & Developer",
-  description: "Crafting digital experiences at the intersection of design and technology. Portfolio featuring creative engineering, typography, and motion design.",
+  title: "Fauzya Shubhi Nalendrasidi — Software Developer & Backend Specialist",
+  description: "Portfolio of Fauzya Shubhi Nalendrasidi (Nalendr). Final-year Informatics student with experience in software development, backend systems, RESTful APIs, and system integration.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

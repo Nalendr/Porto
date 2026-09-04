@@ -92,7 +92,7 @@ export function Hero() {
             transition={{ delay: 1, duration: 1 }}
             className="relative w-full max-w-200 mx-auto lg:mx-0"
           >
-            <GlitchMedia mediaSrc="/muri.mp4" mediaType="video" className="w-full aspect-[16/10] lg:aspect-[16/10]" />
+            <GlitchMedia mediaSrc="/Porto/video/muri.mp4" mediaType="video" className="w-full aspect-[16/10] lg:aspect-[16/10]" />
           </motion.div>
         </div>
 
