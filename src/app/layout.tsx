@@ -15,7 +15,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col relative">
         <BackgroundCanvas />
-        <CursorTrail />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
