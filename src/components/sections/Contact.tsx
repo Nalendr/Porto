@@ -32,7 +32,7 @@ export function Contact() {
             {/* Avatar Image */}
             <div className="w-20 h-20 bg-zinc-900 border-4 border-zinc-950 rounded-full -mt-10 overflow-hidden relative shadow-lg">
               <img
-                src="/Porto/images/profile.png"
+                src="/Porto/images/uji.png"
                 alt="Fauzya Shubhi Nalendrasidi"
                 className="w-full h-full object-cover"
                 onError={(e) => {
