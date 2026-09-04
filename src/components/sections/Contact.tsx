@@ -25,7 +25,7 @@ export function Contact() {
               playsInline
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-zinc-950/60" />
+            <div className="absolute inset-0 bg-linear-to-b from-transparent to-zinc-950/60" />
           </div>
           
           <div className="px-8 pb-8 relative">
