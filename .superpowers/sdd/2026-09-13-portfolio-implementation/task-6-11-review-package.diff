@@ -1,0 +1,526 @@
+﻿047c253 feat: add Contact component and Footer
+c779c42 feat: add Experience component
+cbc62e0 feat: add Skills component
+9ebaff5 feat: add Works component with hover underline animation
+f549ff8 feat: add About component
+685b790 feat: add Hero component with slide-up name animation
+
+ src/components/About.tsx      |  80 +++++++++++++++++++++++++++++++++
+ src/components/Contact.tsx    |  86 +++++++++++++++++++++++++++++++++++
+ src/components/Experience.tsx |  76 +++++++++++++++++++++++++++++++
+ src/components/Hero.tsx       |  69 +++++++++++++++++++++++++++++
+ src/components/Skills.tsx     |  63 ++++++++++++++++++++++++++
+ src/components/Works.tsx      | 101 ++++++++++++++++++++++++++++++++++++++++++
+ 6 files changed, 475 insertions(+)
+
+diff --git a/src/components/About.tsx b/src/components/About.tsx
+new file mode 100644
+index 0000000..cabfa33
+--- /dev/null
++++ b/src/components/About.tsx
+@@ -0,0 +1,80 @@
++'use client'
++
++import { motion, useReducedMotion } from 'framer-motion'
++import SectionWrapper from './SectionWrapper'
++import { bio, stats } from '@/lib/data'
++import { clipReveal, staggerContainer, fadeUp, ruleDrawVariants, viewportOnce } from '@/lib/motion'
++
++export default function About() {
++  const reduced = useReducedMotion()
++  const t = (v: object) => (reduced ? { duration: 0 } : v)
++
++  return (
++    <SectionWrapper id="about" index="01">
++      <motion.div
++        className="mb-10 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-red"
++        variants={fadeUp}
++        initial="hidden"
++        whileInView="visible"
++        viewport={viewportOnce}
++      >
++        About
++        <motion.span
++          className="block h-px w-10 origin-left bg-red"
++          variants={ruleDrawVariants}
++          initial="hidden"
++          whileInView="visible"
++          viewport={viewportOnce}
++          transition={t({ duration: 0.6, ease: [0.16, 1, 0.3, 1] })}
++        />
++      </motion.div>
++
++      <div className="grid max-w-[1100px] grid-cols-2 gap-20 max-lg:grid-cols-1 max-lg:gap-10">
++        <div>
++          <motion.p
++            className="font-serif text-[clamp(28px,3.5vw,48px)] font-semibold leading-[1.2] tracking-[-0.02em]"
++            variants={clipReveal}
++            initial="hidden"
++            whileInView="visible"
++            viewport={viewportOnce}
++            transition={t({ duration: 1, ease: [0.16, 1, 0.3, 1] })}
++          >
++            Code is the medium.<br />
++            <em className="not-italic text-red">Clarity</em> is the craft.
++          </motion.p>
++
++          <motion.div
++            className="mt-12 grid grid-cols-2 gap-8 border-t border-ghost pt-10"
++            variants={staggerContainer}
++            initial="hidden"
++            whileInView="visible"
++            viewport={viewportOnce}
++          >
++            {stats.map((stat) => (
++              <motion.div key={stat.label} variants={fadeUp} transition={t({})}>
++                <div className="font-serif text-[48px] font-black leading-[1] tracking-[-0.03em]">
++                  {stat.number}
++                </div>
++                <div className="mt-1 text-[10px] uppercase tracking-[0.15em] opacity-50">
++                  {stat.label}
++                </div>
++              </motion.div>
++            ))}
++          </motion.div>
++        </div>
++
++        <motion.div
++          className="space-y-5 text-[15px] leading-[1.8] opacity-75 max-w-[480px]"
++          variants={fadeUp}
++          initial="hidden"
++          whileInView="visible"
++          viewport={viewportOnce}
++        >
++          {bio.about.map((para, i) => (
++            <p key={i}>{para}</p>
++          ))}
++        </motion.div>
++      </div>
++    </SectionWrapper>
++  )
++}
+diff --git a/src/components/Contact.tsx b/src/components/Contact.tsx
+new file mode 100644
+index 0000000..523e380
+--- /dev/null
++++ b/src/components/Contact.tsx
+@@ -0,0 +1,86 @@
++'use client'
++
++import { motion, useReducedMotion } from 'framer-motion'
++import SectionWrapper from './SectionWrapper'
++import { contact } from '@/lib/data'
++import { clipReveal, staggerContainer, fadeUp, ruleDrawVariants, viewportOnce } from '@/lib/motion'
++
++function ArrowIcon() {
++  return (
++    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
++      <path d="M2 10L10 2M10 2H5M10 2V7" />
++    </svg>
++  )
++}
++
++export default function Contact() {
++  const reduced = useReducedMotion()
++  const t = (v: object) => (reduced ? { duration: 0 } : v)
++
++  return (
++    <>
++      <SectionWrapper id="contact" index="05" className="min-h-[70vh] flex flex-col justify-center">
++        <motion.div
++          className="mb-10 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-red"
++          variants={fadeUp}
++          initial="hidden"
++          whileInView="visible"
++          viewport={viewportOnce}
++        >
++          Contact
++          <motion.span
++            className="block h-px w-10 origin-left bg-red"
++            variants={ruleDrawVariants}
++            initial="hidden"
++            whileInView="visible"
++            viewport={viewportOnce}
++            transition={t({ duration: 0.6, ease: [0.16, 1, 0.3, 1] })}
++          />
++        </motion.div>
++
++        <motion.h2
++          className="mb-16 font-serif text-[clamp(40px,7vw,100px)] font-black leading-[0.9] tracking-[-0.03em]"
++          variants={clipReveal}
++          initial="hidden"
++          whileInView="visible"
++          viewport={viewportOnce}
++          transition={t({ duration: 1, ease: [0.16, 1, 0.3, 1] })}
++        >
++          Let&apos;s build<br />
++          <span className="text-red">something</span><br />
++          precise.
++        </motion.h2>
++
++        <motion.div
++          className="flex flex-wrap items-center gap-12 max-sm:gap-6"
++          variants={staggerContainer}
++          initial="hidden"
++          whileInView="visible"
++          viewport={viewportOnce}
++        >
++          {contact.map((link) => (
++            <motion.a
++              key={link.label}
++              href={link.href}
++              variants={fadeUp}
++              transition={t({})}
++              className="flex items-center gap-[10px] border-b border-ghost pb-1 text-[13px] font-medium uppercase tracking-[0.08em] text-ink opacity-60 no-underline transition-[opacity,border-color] duration-200 hover:border-red hover:opacity-100"
++            >
++              {link.label}
++              <ArrowIcon />
++            </motion.a>
++          ))}
++        </motion.div>
++      </SectionWrapper>
++
++      <footer className="flex items-center justify-between border-t border-ink px-10 py-8 max-lg:px-6">
++        <span className="text-[11px] tracking-[0.06em] opacity-40">
++          ┬⌐ 2026 Yuki Kawamoto. All rights reserved.
++        </span>
++        <span className="font-serif text-[11px] tracking-[0.06em] opacity-40">
++          Designed with intention.
++        </span>
++      </footer>
++    </>
++  )
++}
+diff --git a/src/components/Experience.tsx b/src/components/Experience.tsx
+new file mode 100644
+index 0000000..781e98f
+--- /dev/null
++++ b/src/components/Experience.tsx
+@@ -0,0 +1,76 @@
++'use client'
++
++import { motion, useReducedMotion } from 'framer-motion'
++import SectionWrapper from './SectionWrapper'
++import { experience } from '@/lib/data'
++import { clipReveal, staggerContainer, fadeUp, ruleDrawVariants, viewportOnce } from '@/lib/motion'
++
++export default function Experience() {
++  const reduced = useReducedMotion()
++  const t = (v: object) => (reduced ? { duration: 0 } : v)
++
++  return (
++    <SectionWrapper id="experience" index="04">
++      <motion.div
++        className="mb-10 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-red"
++        variants={fadeUp}
++        initial="hidden"
++        whileInView="visible"
++        viewport={viewportOnce}
++      >
++        Experience
++        <motion.span
++          className="block h-px w-10 origin-left bg-red"
++          variants={ruleDrawVariants}
++          initial="hidden"
++          whileInView="visible"
++          viewport={viewportOnce}
++          transition={t({ duration: 0.6, ease: [0.16, 1, 0.3, 1] })}
++        />
++      </motion.div>
++
++      <motion.h2
++        className="mb-[72px] font-serif text-[clamp(36px,5vw,72px)] font-black leading-[0.9] tracking-[-0.03em]"
++        variants={clipReveal}
++        initial="hidden"
++        whileInView="visible"
++        viewport={viewportOnce}
++        transition={t({ duration: 1, ease: [0.16, 1, 0.3, 1] })}
++      >
++        Where I&apos;ve<br />worked.
++      </motion.h2>
++
++      <motion.div
++        className="max-w-[900px]"
++        variants={staggerContainer}
++        initial="hidden"
++        whileInView="visible"
++        viewport={viewportOnce}
++      >
++        {experience.map((item) => (
++          <motion.div
++            key={item.year}
++            variants={fadeUp}
++            transition={t({})}
++            className="grid grid-cols-[140px_1fr] gap-12 border-b border-ghost py-12 max-sm:grid-cols-1 max-sm:gap-3"
++          >
++            <div className="relative font-serif text-[48px] font-black leading-[1] tracking-[-0.04em] after:absolute after:top-[10px] after:right-[-24px] after:h-[7px] after:w-[7px] after:rounded-full after:bg-red after:shadow-[0_0_0_1px_#C1341A] after:ring-2 after:ring-paper max-sm:after:hidden">
++              {item.year}
++            </div>
++            <div>
++              <div className="font-serif text-[26px] font-semibold leading-[1] tracking-[-0.02em]">
++                {item.company}
++              </div>
++              <div className="mb-4 mt-1 text-[12px] font-medium uppercase tracking-[0.1em] text-red">
++                {item.role}
++              </div>
++              <p className="max-w-[520px] text-[14px] leading-[1.7] opacity-65">
++                {item.description}
++              </p>
++            </div>
++          </motion.div>
++        ))}
++      </motion.div>
++    </SectionWrapper>
++  )
++}
+diff --git a/src/components/Hero.tsx b/src/components/Hero.tsx
+new file mode 100644
+index 0000000..340f1ea
+--- /dev/null
++++ b/src/components/Hero.tsx
+@@ -0,0 +1,69 @@
++'use client'
++
++import { motion, useReducedMotion } from 'framer-motion'
++import { bio } from '@/lib/data'
++import { heroLineVariants, charStaggerContainer, fadeUp } from '@/lib/motion'
++
++export default function Hero() {
++  const reduced = useReducedMotion()
++
++  return (
++    <section
++      id="hero"
++      className="relative flex min-h-screen flex-col justify-end border-b border-ink px-10 pb-20 max-lg:px-6 max-lg:pb-16"
++    >
++      <motion.p
++        variants={fadeUp}
++        initial="hidden"
++        animate="visible"
++        transition={reduced ? { duration: 0 } : { delay: 0.2 }}
++        className="mb-6 text-[11px] font-medium uppercase tracking-[0.18em] opacity-50"
++      >
++        {bio.location}
++      </motion.p>
++
++      <h1 className="font-serif text-[clamp(56px,10vw,140px)] font-black leading-[0.92] tracking-[-0.03em]">
++        <motion.span
++          variants={charStaggerContainer}
++          initial="hidden"
++          animate="visible"
++          className="block"
++        >
++          {bio.nameLines.map((line, i) => (
++            <span key={i} className="block overflow-hidden">
++              <motion.span
++                variants={heroLineVariants}
++                transition={reduced ? { duration: 0 } : undefined}
++                className="block"
++              >
++                {line}
++              </motion.span>
++            </span>
++          ))}
++        </motion.span>
++      </h1>
++
++      <motion.div
++        variants={fadeUp}
++        initial="hidden"
++        animate="visible"
++        transition={reduced ? { duration: 0 } : { delay: 0.5 }}
++        className="mt-12 flex items-end justify-between border-t border-ghost pt-6 max-sm:flex-col max-sm:items-start max-sm:gap-4"
++      >
++        <p className="max-w-[360px] text-[clamp(12px,1.4vw,16px)] leading-[1.5] tracking-[0.06em] opacity-70">
++          {bio.role}
++        </p>
++        <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.1em]">
++          <span className="h-[7px] w-[7px] animate-pulse rounded-full bg-red" />
++          Available for work
++        </div>
++      </motion.div>
++
++      <span
++        className="absolute bottom-[100px] right-10 hidden text-[10px] uppercase tracking-[0.15em] opacity-40 [writing-mode:vertical-rl] lg:flex items-center gap-3 after:block after:h-[60px] after:w-px after:bg-current"
++      >
++        Scroll
++      </span>
++    </section>
++  )
++}
+diff --git a/src/components/Skills.tsx b/src/components/Skills.tsx
+new file mode 100644
+index 0000000..394eb24
+--- /dev/null
++++ b/src/components/Skills.tsx
+@@ -0,0 +1,63 @@
++'use client'
++
++import { motion, useReducedMotion } from 'framer-motion'
++import SectionWrapper from './SectionWrapper'
++import { skills } from '@/lib/data'
++import { clipReveal, fadeUp, ruleDrawVariants, viewportOnce } from '@/lib/motion'
++
++export default function Skills() {
++  const reduced = useReducedMotion()
++  const t = (v: object) => (reduced ? { duration: 0 } : v)
++
++  return (
++    <SectionWrapper id="skills" index="03">
++      <motion.div
++        className="mb-10 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-red"
++        variants={fadeUp}
++        initial="hidden"
++        whileInView="visible"
++        viewport={viewportOnce}
++      >
++        Skills &amp; stack
++        <motion.span
++          className="block h-px w-10 origin-left bg-red"
++          variants={ruleDrawVariants}
++          initial="hidden"
++          whileInView="visible"
++          viewport={viewportOnce}
++          transition={t({ duration: 0.6, ease: [0.16, 1, 0.3, 1] })}
++        />
++      </motion.div>
++
++      <motion.h2
++        className="mb-14 font-serif text-[clamp(36px,5vw,72px)] font-black leading-[0.9] tracking-[-0.03em]"
++        variants={clipReveal}
++        initial="hidden"
++        whileInView="visible"
++        viewport={viewportOnce}
++        transition={t({ duration: 1, ease: [0.16, 1, 0.3, 1] })}
++      >
++        The tools<br />I reach for.
++      </motion.h2>
++
++      <motion.div
++        className="max-w-[900px] border border-ink"
++        variants={fadeUp}
++        initial="hidden"
++        whileInView="visible"
++        viewport={viewportOnce}
++      >
++        {skills.map((row) => (
++          <div key={row.category} className="grid grid-cols-2 border-b border-ink last:border-b-0 max-sm:grid-cols-1">
++            <div className="border-r border-ink px-7 py-5 text-[10px] font-semibold uppercase tracking-[0.18em] opacity-50 max-sm:border-r-0 max-sm:border-b max-sm:border-ink">
++              {row.category}
++            </div>
++            <div className="px-7 py-5 font-serif text-[14px] leading-[1.6] tracking-[-0.01em]">
++              {row.items}
++            </div>
++          </div>
++        ))}
++      </motion.div>
++    </SectionWrapper>
++  )
++}
+diff --git a/src/components/Works.tsx b/src/components/Works.tsx
+new file mode 100644
+index 0000000..09820b4
+--- /dev/null
++++ b/src/components/Works.tsx
+@@ -0,0 +1,101 @@
++'use client'
++
++import { motion, useReducedMotion } from 'framer-motion'
++import SectionWrapper from './SectionWrapper'
++import { projects } from '@/lib/data'
++import { clipReveal, staggerContainer, fadeUp, ruleDrawVariants, viewportOnce } from '@/lib/motion'
++
++export default function Works() {
++  const reduced = useReducedMotion()
++  const t = (v: object) => (reduced ? { duration: 0 } : v)
++
++  return (
++    <SectionWrapper id="works" index="02">
++      <motion.div
++        className="mb-10 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-red"
++        variants={fadeUp}
++        initial="hidden"
++        whileInView="visible"
++        viewport={viewportOnce}
++      >
++        Selected works
++        <motion.span
++          className="block h-px w-10 origin-left bg-red"
++          variants={ruleDrawVariants}
++          initial="hidden"
++          whileInView="visible"
++          viewport={viewportOnce}
++          transition={t({ duration: 0.6, ease: [0.16, 1, 0.3, 1] })}
++        />
++      </motion.div>
++
++      <div className="mb-16 flex max-w-[1100px] items-baseline justify-between max-sm:flex-col max-sm:gap-2">
++        <motion.h2
++          className="font-serif text-[clamp(36px,5vw,72px)] font-black leading-[0.9] tracking-[-0.03em]"
++          variants={clipReveal}
++          initial="hidden"
++          whileInView="visible"
++          viewport={viewportOnce}
++          transition={t({ duration: 1, ease: [0.16, 1, 0.3, 1] })}
++        >
++          Projects &amp;<br />experiments.
++        </motion.h2>
++        <motion.span
++          className="text-[12px] uppercase tracking-[0.12em] opacity-40"
++          variants={fadeUp}
++          initial="hidden"
++          whileInView="visible"
++          viewport={viewportOnce}
++        >
++          {projects.length} projects
++        </motion.span>
++      </div>
++
++      <motion.div
++        className="max-w-[1100px]"
++        variants={staggerContainer}
++        initial="hidden"
++        whileInView="visible"
++        viewport={viewportOnce}
++      >
++        {projects.map((project) => (
++          <motion.div
++            key={project.id}
++            variants={fadeUp}
++            transition={t({})}
++            className="group relative grid grid-cols-[80px_1fr_auto] items-baseline gap-8 border-b border-ghost py-7 cursor-pointer max-sm:grid-cols-[40px_1fr]"
++          >
++            <motion.span
++              className="absolute bottom-[-1px] left-0 h-px bg-red origin-left"
++              initial={{ scaleX: 0 }}
++              whileHover={reduced ? {} : { scaleX: 1 }}
++              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
++              style={{ width: '100%' }}
++            />
++            <span className="text-[11px] font-medium uppercase tracking-[0.1em] opacity-40">
++              {String(project.id).padStart(3, '0')}
++            </span>
++            <div>
++              <div className="font-serif text-[clamp(20px,2.5vw,32px)] font-semibold leading-[1.1] tracking-[-0.01em] transition-colors duration-200 group-hover:text-red">
++                {project.title}
++              </div>
++              <div className="mt-1 text-[13px] leading-[1.5] opacity-55">
++                {project.description}
++              </div>
++            </div>
++            <div className="flex flex-wrap justify-end gap-2 max-sm:hidden">
++              {project.tags.map((tag) => (
++                <span
++                  key={tag}
++                  className="border border-ghost px-[10px] py-1 text-[9px] font-semibold uppercase tracking-[0.14em] opacity-60"
++                >
++                  {tag}
++                </span>
++              ))}
++            </div>
++          </motion.div>
++        ))}
++      </motion.div>
++    </SectionWrapper>
++  )
++}

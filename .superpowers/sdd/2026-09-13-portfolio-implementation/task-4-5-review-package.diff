@@ -1,0 +1,100 @@
+﻿5151ab0 feat: add Nav component
+dc4edef feat: add SectionWrapper with index watermark and scroll reveal
+
+ src/components/Nav.tsx            | 42 +++++++++++++++++++++++++++++++++++++++
+ src/components/SectionWrapper.tsx | 39 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 81 insertions(+)
+
+diff --git a/src/components/Nav.tsx b/src/components/Nav.tsx
+new file mode 100644
+index 0000000..d26d21f
+--- /dev/null
++++ b/src/components/Nav.tsx
+@@ -0,0 +1,42 @@
++'use client'
++
++import { motion } from 'framer-motion'
++import { fadeUp } from '@/lib/motion'
++
++const links = [
++  { label: 'About', href: '#about' },
++  { label: 'Works', href: '#works' },
++  { label: 'Skills', href: '#skills' },
++  { label: 'Experience', href: '#experience' },
++  { label: 'Contact', href: '#contact' },
++]
++
++export default function Nav() {
++  return (
++    <motion.nav
++      variants={fadeUp}
++      initial="hidden"
++      animate="visible"
++      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 py-5 mix-blend-multiply max-lg:px-6"
++    >
++      <a
++        href="#hero"
++        className="font-serif text-[18px] font-black tracking-[-0.02em] text-ink no-underline"
++      >
++        YK.
++      </a>
++      <ul className="flex gap-8 list-none max-lg:hidden">
++        {links.map((link) => (
++          <li key={link.href}>
++            <a
++              href={link.href}
++              className="text-[11px] font-medium uppercase tracking-[0.12em] text-ink opacity-60 no-underline transition-opacity duration-200 hover:opacity-100"
++            >
++              {link.label}
++            </a>
++          </li>
++        ))}
++      </ul>
++    </motion.nav>
++  )
++}
+diff --git a/src/components/SectionWrapper.tsx b/src/components/SectionWrapper.tsx
+new file mode 100644
+index 0000000..d63bdcb
+--- /dev/null
++++ b/src/components/SectionWrapper.tsx
+@@ -0,0 +1,39 @@
++'use client'
++
++import { motion, useReducedMotion } from 'framer-motion'
++import { fadeUp, viewportOnce } from '@/lib/motion'
++
++type SectionWrapperProps = {
++  id: string
++  index: string
++  children: React.ReactNode
++  className?: string
++}
++
++export default function SectionWrapper({ id, index, children, className = '' }: SectionWrapperProps) {
++  const reduced = useReducedMotion()
++
++  return (
++    <section
++      id={id}
++      className={`relative overflow-hidden border-t border-ink pt-[120px] pb-[120px] pl-[160px] pr-10 max-lg:px-6 max-lg:py-20 ${className}`}
++    >
++      <span
++        aria-hidden="true"
++        className="pointer-events-none absolute left-[-0.05em] top-[60px] select-none font-serif text-[22vw] font-black leading-[0.8] tracking-[-0.04em] text-ghost z-0"
++      >
++        {index}
++      </span>
++      <motion.div
++        className="relative z-10"
++        variants={fadeUp}
++        initial="hidden"
++        whileInView="visible"
++        viewport={viewportOnce}
++        transition={reduced ? { duration: 0 } : undefined}
++      >
++        {children}
++      </motion.div>
++    </section>
++  )
++}

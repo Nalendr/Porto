@@ -26,3 +26,17 @@ Scan: clean with 3 rulings recorded above.
 
 ## Task progress
 
+Task 1: complete (commits 6886a33..901c5bb, review clean — node_modules never tracked, lockfile name fixed in hotfix commit)
+Task 2: complete (commits 901c5bb..07b1401, review clean — Unicode corruption finding was false positive from diff file encoding; node verified all chars present)
+Task 3: complete (same commit 07b1401, review clean)
+Task 4: complete (commits 07b1401..dc4edef, review clean)
+Task 5: complete (commits dc4edef..5151ab0, review clean)
+Task 6: complete (commit 685b790, review clean — © encoding finding false positive, verified with node)
+Task 7: complete (commit f549ff8, review clean)
+Task 8: complete (commit 9ebaff5, review clean)
+Task 9: complete (commit cbc62e0, review clean)
+Task 10: complete (commit c779c42, review clean)
+Task 11: complete (commit 047c253, review clean — © encoding finding false positive, verified with node)
+
+Task 12: complete (commit 80adf6e, review clean)
+
