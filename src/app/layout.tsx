@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Shippori_Mincho, Space_Grotesk } from 'next/font/google'
 import DifferenceCursor from '@/components/DifferenceCursor'
-// @ts-expect-error Next.js handles global CSS imports at build time.
 import './globals.css'
 
 const shippori = Shippori_Mincho({
