@@ -14,6 +14,8 @@ function ArrowIcon() {
   )
 }
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+
 export default function Contact() {
   const reduced = useReducedMotion()
   const t = (v: object) => (reduced ? { duration: 0 } : v)
@@ -62,18 +64,24 @@ export default function Contact() {
               whileInView="visible"
               viewport={viewportOnce}
             >
-              {contact.map((link) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  variants={fadeUp}
-                  transition={t({})}
-                  className="flex items-center gap-[10px] border-b border-ghost pb-1 text-[13px] font-medium uppercase tracking-[0.08em] text-ink opacity-60 no-underline transition-[opacity,border-color] duration-200 hover:border-red hover:opacity-100"
-                >
-                  {link.label}
-                  <ArrowIcon />
-                </motion.a>
-              ))}
+              {contact.map((link) => {
+                const href = link.href.startsWith('/') ? `${basePath}${link.href}` : link.href
+                const isExternal = !link.href.startsWith('mailto:')
+                return (
+                  <motion.a
+                    key={link.label}
+                    href={href}
+                    target={isExternal ? '_blank' : undefined}
+                    rel={isExternal ? 'noopener noreferrer' : undefined}
+                    variants={fadeUp}
+                    transition={t({})}
+                    className="flex items-center gap-[10px] border-b border-ghost pb-1 text-[13px] font-medium uppercase tracking-[0.08em] text-ink opacity-60 no-underline transition-[opacity,border-color] duration-200 hover:border-red hover:opacity-100"
+                  >
+                    {link.label}
+                    <ArrowIcon />
+                  </motion.a>
+                )
+              })}
             </motion.div>
           </div>
 

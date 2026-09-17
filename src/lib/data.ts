@@ -260,6 +260,7 @@ export const contact: ContactLink[] = [
   { label: 'Email', href: 'mailto:fauzyasn@gmail.com' },
   { label: 'GitHub', href: 'https://github.com/Nalendr' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/nalendrs/' },
+  { label: 'Resume', href: '/resume/Fauzya-Shubhi-Nalendrasidi.pdf' },
 ]
 
 export type ChessConfig = {
