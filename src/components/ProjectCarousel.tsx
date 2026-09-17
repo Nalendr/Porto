@@ -9,6 +9,8 @@ interface ProjectCarouselProps {
   title: string
 }
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.NODE_ENV === 'production' ? '/Porto' : '')
+
 export default function ProjectCarousel({ images, title }: ProjectCarouselProps) {
   const reduced = useReducedMotion()
   const carouselRef = useRef<HTMLDivElement>(null)
@@ -74,7 +76,9 @@ export default function ProjectCarousel({ images, title }: ProjectCarouselProps)
         >
           {items.map((item, idx) => {
             const hasError = imgErrors[idx]
-            const hasSrc = Boolean(item.src) && !hasError
+            const rawSrc = item.src
+            const resolvedSrc = rawSrc ? (rawSrc.startsWith('/') ? `${basePath}${rawSrc}` : rawSrc) : undefined
+            const hasSrc = Boolean(resolvedSrc) && !hasError
 
             return (
               <div
@@ -92,7 +96,7 @@ export default function ProjectCarousel({ images, title }: ProjectCarouselProps)
                   {hasSrc ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
-                      src={item.src}
+                      src={resolvedSrc}
                       alt={item.caption}
                       draggable={false}
                       onError={() => setImgErrors((prev) => ({ ...prev, [idx]: true }))}
