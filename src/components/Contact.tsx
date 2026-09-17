@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from 'framer-motion'
 import SectionWrapper from './SectionWrapper'
+// import ChessHeatmap from './ChessHeatmap'
 import { contact } from '@/lib/data'
 import { clipReveal, staggerContainer, fadeUp, ruleDrawVariants, viewportOnce } from '@/lib/motion'
 
@@ -38,44 +39,54 @@ export default function Contact() {
           />
         </motion.div>
 
-        <motion.h2
-          className="mb-16 font-serif text-[clamp(40px,7vw,100px)] font-black leading-[0.9] tracking-[-0.03em]"
-          variants={clipReveal}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          transition={t({ duration: 1, ease: [0.16, 1, 0.3, 1] })}
-        >
-          Let&apos;s build<br />
-          <span className="text-red">something</span><br />
-          precise.
-        </motion.h2>
-
-        <motion.div
-          className="flex flex-wrap items-center gap-12 max-sm:gap-6"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-        >
-          {contact.map((link) => (
-            <motion.a
-              key={link.label}
-              href={link.href}
-              variants={fadeUp}
-              transition={t({})}
-              className="flex items-center gap-[10px] border-b border-ghost pb-1 text-[13px] font-medium uppercase tracking-[0.08em] text-ink opacity-60 no-underline transition-[opacity,border-color] duration-200 hover:border-red hover:opacity-100"
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Kolom Kiri: Statement & Link Kontak */}
+          <div className="lg:col-span-5 flex flex-col justify-between">
+            <motion.h2
+              className="mb-12 font-serif text-[clamp(40px,5.5vw,84px)] font-black leading-[0.92] tracking-[-0.03em]"
+              variants={clipReveal}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              transition={t({ duration: 1, ease: [0.16, 1, 0.3, 1] })}
             >
-              {link.label}
-              <ArrowIcon />
-            </motion.a>
-          ))}
-        </motion.div>
+              Let&apos;s build<br />
+              <span className="text-red">something</span><br />
+              precise.
+            </motion.h2>
+
+            <motion.div
+              className="flex flex-wrap items-center gap-8 max-sm:gap-5"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+            >
+              {contact.map((link) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  variants={fadeUp}
+                  transition={t({})}
+                  className="flex items-center gap-[10px] border-b border-ghost pb-1 text-[13px] font-medium uppercase tracking-[0.08em] text-ink opacity-60 no-underline transition-[opacity,border-color] duration-200 hover:border-red hover:opacity-100"
+                >
+                  {link.label}
+                  <ArrowIcon />
+                </motion.a>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Kolom Kanan: Chess Activity Heatmap */}
+          {/* <div className="lg:col-span-7 w-full">
+            <ChessHeatmap />
+          </div> */}
+        </div>
       </SectionWrapper>
 
       <footer className="flex items-center justify-between border-t border-ink px-10 py-8 max-lg:px-6">
         <span className="text-[11px] tracking-[0.06em] opacity-40">
-          © 2026 Yuki Kawamoto. All rights reserved.
+          © 2026 Fauzya Shubhi Nalendrasidi. All rights reserved.
         </span>
         <span className="font-serif text-[11px] tracking-[0.06em] opacity-40">
           Designed with intention.

@@ -11,19 +11,24 @@ const links = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export default function Nav() {
+export default function Nav({ drawerOpen = false }: { drawerOpen?: boolean }) {
   return (
     <motion.nav
       variants={fadeUp}
       initial="hidden"
       animate="visible"
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 py-5 mix-blend-multiply max-lg:px-6"
+      className={[
+        'fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 py-5 max-lg:px-6 transition-[background-color,border-color,backdrop-filter] duration-300',
+        drawerOpen
+          ? 'bg-paper/90 backdrop-blur-sm border-b border-ghost'
+          : 'mix-blend-multiply',
+      ].join(' ')}
     >
       <a
         href="#hero"
         className="font-serif text-[18px] font-black tracking-[-0.02em] text-ink no-underline"
       >
-        YK.
+        FN.
       </a>
       <ul className="flex gap-8 list-none max-lg:hidden">
         {links.map((link) => (

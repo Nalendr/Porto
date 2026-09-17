@@ -38,5 +38,8 @@ Task 9: complete (commit cbc62e0, review clean)
 Task 10: complete (commit c779c42, review clean)
 Task 11: complete (commit 047c253, review clean — © encoding finding false positive, verified with node)
 
-Task 12: complete (commit 80adf6e, review clean)
+Task 13: complete (commit 4bc3217, build clean — 5 static pages, no TS errors, lint clean)
+
+---
+MERGE_BASE: 6886a336e87967590b3db94acb575bf80119583d
 

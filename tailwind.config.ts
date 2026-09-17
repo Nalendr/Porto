@@ -11,7 +11,7 @@ const config: Config = {
         ghost: '#D9D3C6',
       },
       fontFamily: {
-        serif: ['var(--font-shippori)', 'serif'],
+        serif: ['var(--font-shippori)', '"Hiragino Mincho ProN"', '"Yu Mincho"', 'serif'],
         sans: ['var(--font-grotesk)', 'sans-serif'],
       },
     },

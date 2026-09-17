@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { bio } from '@/lib/data'
 import { heroLineVariants, charStaggerContainer, fadeUp } from '@/lib/motion'
+import HeroJapaneseAccent from '@/components/HeroJapaneseAccent'
 
 export default function Hero() {
   const reduced = useReducedMotion()
@@ -12,6 +13,8 @@ export default function Hero() {
       id="hero"
       className="relative flex min-h-screen flex-col justify-end border-b border-ink px-10 pb-20 max-lg:px-6 max-lg:pb-16"
     >
+      <HeroJapaneseAccent />
+
       <motion.p
         variants={fadeUp}
         initial="hidden"

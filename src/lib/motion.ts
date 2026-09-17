@@ -52,6 +52,6 @@ export const reducedMotion = {
 }
 
 export const viewportOnce = {
-  once: true,
+  once: false,
   margin: '0px 0px -60px 0px',
 }

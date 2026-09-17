@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import { Shippori_Mincho, Space_Grotesk } from 'next/font/google'
+import DifferenceCursor from '@/components/DifferenceCursor'
 import './globals.css'
 
 const shippori = Shippori_Mincho({
-  subsets: ['latin'],
   weight: ['400', '600', '800'],
   variable: '--font-shippori',
   display: 'swap',
+  preload: false,
 })
 
 const grotesk = Space_Grotesk({
@@ -17,14 +18,17 @@ const grotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'Yuki Kawamoto — Software Developer',
-  description: 'Full-stack software developer. Precision engineering, from architecture to interaction.',
+  title: 'Fauzya Shubhi Nalendrasidi — Software Developer',
+  description: 'Informatics student specializing in backend systems, RESTful API integration, and data-driven applications.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${shippori.variable} ${grotesk.variable}`}>
-      <body>{children}</body>
+      <body>
+        <DifferenceCursor />
+        {children}
+      </body>
     </html>
   )
 }
