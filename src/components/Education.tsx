@@ -2,15 +2,15 @@
 
 import { motion, useReducedMotion } from 'framer-motion'
 import SectionWrapper from './SectionWrapper'
-import { experience } from '@/lib/data'
+import { education } from '@/lib/data'
 import { clipReveal, staggerContainer, fadeUp, ruleDrawVariants, viewportOnce } from '@/lib/motion'
 
-export default function Experience() {
+export default function Education() {
   const reduced = useReducedMotion()
   const t = (v: object) => (reduced ? { duration: 0 } : v)
 
   return (
-    <SectionWrapper id="experience">
+    <SectionWrapper id="education">
       <motion.div
         className="mb-10 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-red"
         variants={fadeUp}
@@ -18,7 +18,7 @@ export default function Experience() {
         whileInView="visible"
         viewport={viewportOnce}
       >
-        Experience
+        Education
         <motion.span
           className="block h-px w-10 origin-left bg-red"
           variants={ruleDrawVariants}
@@ -37,7 +37,7 @@ export default function Experience() {
         viewport={viewportOnce}
         transition={t({ duration: 1, ease: [0.16, 1, 0.3, 1] })}
       >
-        Where I&apos;ve<br />worked.
+        Academic<br />background.
       </motion.h2>
 
       <motion.div
@@ -47,9 +47,9 @@ export default function Experience() {
         whileInView="visible"
         viewport={viewportOnce}
       >
-        {experience.map((item) => (
+        {education.map((item) => (
           <motion.div
-            key={item.year}
+            key={item.institution}
             variants={fadeUp}
             transition={t({})}
             className="grid grid-cols-[140px_1fr] gap-12 border-b border-ghost py-12 max-sm:grid-cols-1 max-sm:gap-3"
@@ -59,10 +59,10 @@ export default function Experience() {
             </div>
             <div>
               <div className="font-serif text-[26px] font-semibold leading-[1] tracking-[-0.02em]">
-                {item.company}
+                {item.institution}
               </div>
               <div className="mb-4 mt-1 text-[12px] font-medium uppercase tracking-[0.1em] text-red">
-                {item.role}
+                {item.degree}
               </div>
               <p className="max-w-[520px] text-[14px] leading-[1.7] opacity-65">
                 {item.description}

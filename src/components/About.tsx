@@ -10,7 +10,7 @@ export default function About() {
   const t = (v: object) => (reduced ? { duration: 0 } : v)
 
   return (
-    <SectionWrapper id="about" index="01">
+    <SectionWrapper id="about">
       <motion.div
         className="mb-10 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-red"
         variants={fadeUp}

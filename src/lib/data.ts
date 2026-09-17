@@ -44,6 +44,13 @@ export type Experience = {
   description: string
 }
 
+export type Education = {
+  year: string
+  institution: string
+  degree: string
+  description: string
+}
+
 export type ContactLink = {
   label: string
   href: string
@@ -238,10 +245,13 @@ export const experience: Experience[] = [
     role: 'IT Infrastructure & Lecturer (Part-Time)',
     description: 'Maintained network and hardware infrastructure across 10+ computing nodes. Instructed over 50 students in computer operations, programming fundamentals, and networking.',
   },
+]
+
+export const education: Education[] = [
   {
     year: '2023–27',
-    company: 'University Buana Perjuangan Karawang',
-    role: 'Bachelor of Informatics (GPA: 3.74/4.00)',
+    institution: 'University Buana Perjuangan Karawang',
+    degree: 'Bachelor of Informatics (GPA: 3.74/4.00)',
     description: 'Coursework in Algorithms & Data Structures, Computer Vision, Embedded Systems, Robotics & Automation, Real-Time Operating Systems (RTOS), and Computer Networking.',
   },
 ]

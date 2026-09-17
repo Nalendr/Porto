@@ -24,14 +24,6 @@ export default function Works({ onOpen, onClose, selected }: Props) {
       className="relative border-t border-ink pt-[120px] pb-[120px] max-lg:px-6 max-lg:py-20"
       style={{ overflow: 'clip' }}
     >
-      {/* Index watermark */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[-0.05em] top-[60px] select-none font-serif text-[22vw] font-black leading-[0.8] tracking-[-0.04em] text-ghost z-0"
-      >
-        02
-      </span>
-
       {/* Flex row: list left, drawer right */}
       <div className="relative z-10 flex items-start">
 

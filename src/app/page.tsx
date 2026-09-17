@@ -7,6 +7,7 @@ import About from '@/components/About'
 import Works from '@/components/Works'
 import Skills from '@/components/Skills'
 import Experience from '@/components/Experience'
+import Education from '@/components/Education'
 import Contact from '@/components/Contact'
 import ProjectDrawer from '@/components/ProjectDrawer'
 import type { Project } from '@/lib/data'
@@ -36,6 +37,7 @@ export default function Page() {
         <Works onOpen={handleOpen} onClose={handleClose} selected={selected} />
         <Skills />
         <Experience />
+        <Education />
         <Contact />
       </main>
     </>

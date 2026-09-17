@@ -20,7 +20,7 @@ export default function Contact() {
 
   return (
     <>
-      <SectionWrapper id="contact" index="05" className="min-h-[70vh] flex flex-col justify-center">
+      <SectionWrapper id="contact" className="min-h-[70vh] flex flex-col justify-center">
         <motion.div
           className="mb-10 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-red"
           variants={fadeUp}

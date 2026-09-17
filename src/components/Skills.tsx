@@ -12,7 +12,7 @@ export default function Skills() {
   const t = (v: object) => (reduced ? { duration: 0 } : v)
 
   return (
-    <SectionWrapper id="skills" index="03">
+    <SectionWrapper id="skills">
       {/* Section label */}
       <motion.div
         className="mb-10 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-red"
