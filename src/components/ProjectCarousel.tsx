@@ -77,7 +77,11 @@ export default function ProjectCarousel({ images, title }: ProjectCarouselProps)
           {items.map((item, idx) => {
             const hasError = imgErrors[idx]
             const rawSrc = item.src
-            const resolvedSrc = rawSrc ? (rawSrc.startsWith('/') ? `${basePath}${rawSrc}` : rawSrc) : undefined
+            const resolvedSrc = rawSrc
+              ? rawSrc.startsWith('/')
+                ? (basePath && !rawSrc.startsWith(basePath) ? `${basePath}${rawSrc}` : rawSrc)
+                : rawSrc
+              : undefined
             const hasSrc = Boolean(resolvedSrc) && !hasError
 
             return (
