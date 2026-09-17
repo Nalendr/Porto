@@ -29,7 +29,7 @@ export default function Nav({ drawerOpen = false }: { drawerOpen?: boolean }) {
         href="#hero"
         className="font-serif text-[18px] font-black tracking-[-0.02em] text-ink no-underline"
       >
-        FN.
+        FNs.
       </a>
       <ul className="flex gap-8 list-none max-lg:hidden">
         {links.map((link) => (
