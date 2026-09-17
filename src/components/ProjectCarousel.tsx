@@ -9,7 +9,7 @@ interface ProjectCarouselProps {
   title: string
 }
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.NODE_ENV === 'production' ? '/Porto' : '')
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 export default function ProjectCarousel({ images, title }: ProjectCarouselProps) {
   const reduced = useReducedMotion()
