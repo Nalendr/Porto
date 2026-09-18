@@ -156,7 +156,7 @@ export const projects: Project[] = [
     tags: ['Laravel', 'MySQL', 'Bootstrap', 'REST API', 'Pusher'],
     year: '2026',
     outcome: 'Unified datacenter operations ERP with automated deployments & audit compliance',
-    viewProject: 'https://portal.dc-indo.com/',
+    viewProject: '',
     longDescription: [
       'Portal DC-INDO is an enterprise management and internal operations ERP built for PT Datacenter Indonesia Sukses Makmur (DISM), centralizing datacenter facility bookings, warehouse inventory, corporate logistics, and HSE safety permits.',
       'Architected complex relational database schemas in MySQL and multi-tier approval workflows in Laravel for Incidents Reoorts, Change Request Forms (CRF), and Safety First.',
