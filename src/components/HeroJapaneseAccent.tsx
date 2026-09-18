@@ -272,6 +272,13 @@ export default function HeroJapaneseAccent() {
           </span>
         </div>
 
+        {/* Motto */}
+        <div className="flex flex-col border-l border-ink/20 pl-2 sm:pl-2.5 pt-0.5">
+          <span className="font-serif text-[7.5px] sm:text-[8.5px] md:text-[9px] italic tracking-wide text-ink/75 max-w-[120px] sm:max-w-[150px] leading-tight">
+            God in His heaven, all&apos;s right with the world.
+          </span>
+        </div>
+
         {/* Hanko (朱肉印 / Vermillion Seal) */}
         <motion.div
           className="mt-0.5 flex flex-col items-center justify-center border border-red/80 bg-red/[0.04] px-1 py-1.5 sm:px-1.5 sm:py-2 shadow-[0_0_0_1px_rgba(193,52,26,0.15)] [writing-mode:vertical-rl]"
